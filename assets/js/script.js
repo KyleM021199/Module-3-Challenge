@@ -9,6 +9,7 @@ var selection = [];
 var passwordRandomizer = "";
 
 function generatePassword(){
+  selection = [];
   passwordRandomizer  = "";
   // Password Length prompt
   getPasswordLength = window.prompt("Choose a password length between 8 and 128 characters.");
@@ -30,25 +31,32 @@ function generatePassword(){
    getPasswordCharUpper = window.confirm("Do you want uppercase characters?");
    if(getPasswordCharUpper){
     selection.push(getPasswordCharUpper);
+  }else if(getPasswordCharUpper == false){
+    selection.push(getPasswordCharUpper);
   }
+  console.log(getPasswordCharUpper);
      //Lowercase
      getPasswordCharLower = window.confirm("Do you want lowercase characters?");
      if(getPasswordCharLower){
       selection.push(getPasswordCharLower);
       
-      }
+    }else if(getPasswordCharLower == false){
+      selection.push(getPasswordCharLower);
+    }
       //Numbers
      getPasswordCharNum = window.confirm("Do you want numbers?");
      if (getPasswordCharNum){
       selection.push(getPasswordCharNum);
-      
-     }
+     }else if(getPasswordCharNum == false){
+      selection.push(getPasswordCharNum);
+    }
      //Specials
      getPasswordCharSpecial = window.confirm("Do you want special characters?");
      if(getPasswordCharSpecial){
       selection.push(getPasswordCharSpecial);
+    }else if(getPasswordCharSpecial == false){
+      selection.push(getPasswordCharSpecial);
     }
-console.log(selection[1]);
     //Selection/Randomizer 
 for (var i = 0; i < passwordLength; i++ ) {
     var selected = false;
@@ -59,9 +67,9 @@ for (var i = 0; i < passwordLength; i++ ) {
         currentSelection = rannum;
         selected = true;
       }
-
     }
-    console.log(currentSelection);
+    console.log(selection);
+    
       switch(currentSelection){
       case 0:
       passwordRandomizer += randomUpper(); //Uppercase
@@ -77,6 +85,7 @@ for (var i = 0; i < passwordLength; i++ ) {
       break;
       }
     
+  
 }
 
 
@@ -87,7 +96,6 @@ function randomLower(){
   var charLower = "abcde";
   var lowerIndex = Math.floor(Math.random()* charLower.length);
   return charLower.charAt(lowerIndex);
-console.log(charLower.length);
 }
 
 function randomUpper(){
