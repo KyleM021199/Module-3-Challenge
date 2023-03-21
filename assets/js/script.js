@@ -91,15 +91,15 @@ for (var i = 0; i < passwordLength; i++ ) {
 
  return window.alert("Password: " + passwordRandomizer);
 }
+var charLower = "abcdefghijklmnopqrstuvwxyz";
 
 function randomLower(){
-  var charLower = "abcde";
   var lowerIndex = Math.floor(Math.random()* charLower.length);
   return charLower.charAt(lowerIndex);
 }
 
 function randomUpper(){
-  var charUpper = "ABCDE";
+  var charUpper = charLower.toUpperCase();
   var upperIndex = Math.floor(Math.random()* charUpper.length);
   return charUpper.charAt(upperIndex);
 
@@ -111,7 +111,7 @@ function randomNum(){
 
 }
 function randomSpecial(){
-  var charSpecial = "!@#$%";
+  var charSpecial = "!@#$%^&*";
   var specialIndex = Math.floor(Math.random()* charSpecial.length);
   return charSpecial.charAt(specialIndex);
 
